@@ -1,0 +1,29 @@
+{
+    "note": "THIS IS STILL IN DEVELOPMENT.",
+    "settings": {
+        "bot_token": "",
+        "bot_debug_mode_enabled": false,
+        "bot_timeout_seconds": 30
+    },
+    "commands": [
+        {
+            "note": "",
+            "command": "start",
+            "require_membership": false,
+            "path_to_banner": "",
+            "command_aliases": [
+                "help"
+            ]
+        },
+        {
+            "note": "",
+            "command": "purchase",
+            "require_membership": false,
+            "path_to_banner": "",
+            "command_aliases": [
+                "h",
+                "?"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+name=plan
+description=plan menu
+admin=false
+reseller=false
+vip=false
+raw=false
+holder=false 
+==================== MENU SPLIT DONE ====================
+[38;5;255mUsername[38;5;45m:[38;5;039m<<$username>>
+[38;5;255mMax Attack Time[38;5;45m:[38;5;039m<<$maxtime>> secs
+[38;5;255mConcurrents[38;5;45m:[38;5;039m<<$concurrents>>
+[38;5;255mCooldown[38;5;45m:[38;5;039m<<$cooldown>> secs
+[38;5;255mUser Ongoing Attack Count[38;5;45m:[38;5;039m<<$myongoing>>
+[38;5;255mVIP Status[38;5;45m:[38;5;039m<<$vip>>
+[38;5;255mPlan Expiry Date[38;5;45m:[38;5;039m<<$days_left>>
+[38;5;201mReseller Status[38;5;45m:[38;5;039m<<$reseller>>
+[38;5;201mAdministrator Status[38;5;45m:[38;5;039m<<$admin>>
+[38;5;102mBypass Powersaving Status[38;5;45m:[38;5;039m<<$powersaving>>
+[38;5;102mBypass Blacklist Status[38;5;45m:[38;5;039m<<$bypassblacklist>>
+
+[38;5;102m client ip Status[38;5;45m:[38;5;039m<<$clientip>>
+[38;5;102m Created By Status[38;5;45m:[38;5;039m<<$createdby>>

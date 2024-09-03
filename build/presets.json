@@ -1,0 +1,67 @@
+{
+    "Plans" : [
+        {
+            "Name"        : "Datasec",
+            "Description" : "Starter build ",
+            "Price"       : "£0/m", 
+
+            "Admin"       : false,
+            "PowerSaving" : false,
+            "BypassBlacklist": false,
+            "Reseller"    : false,
+            "Banned"      : false,
+            "VIP"         : false,
+            "Raw"         : false,
+            "Holder"      : false,
+            
+            "MaxSessions" : 1,
+            "Maxtime"     : 60,
+            "Cooldown"    : 45,
+            "Concurrents" : 1,
+
+            "DaysActive"  : 5
+        },
+        {
+            "Name"        : "VIP",
+            "Description" : "Starter build VIP 2x Boosts",
+            "Price"       : "£0/m", 
+
+            "Admin"       : false,
+            "PowerSaving" : false,
+            "BypassBlacklist": false,
+            "Reseller"    : false,
+            "Banned"      : false,
+            "VIP"         : true,
+            "Raw"         : false,
+            "Holder"      : false,
+            
+            "MaxSessions" : 1,
+            "Maxtime"     : 120,
+            "Cooldown"    : 30,
+            "Concurrents" : 1,
+
+            "DaysActive"  : 5
+        },
+        {
+            "Name"        : "Owner",
+            "Description" : "Starter build Owner",
+            "Price"       : "£0/m", 
+
+            "Admin"       : false,
+            "PowerSaving" : false,
+            "BypassBlacklist": false,
+            "Reseller"    : false,
+            "Banned"      : false,
+            "VIP"         : true,
+            "Raw"         : false,
+            "Holder"      : false,
+            
+            "MaxSessions" : 1,
+            "Maxtime"     : 120,
+            "Cooldown"    : 20,
+            "Concurrents" : 1,
+
+            "DaysActive"  : 31
+        }
+    ]
+}
