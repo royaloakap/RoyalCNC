@@ -1,0 +1,20 @@
+{
+    "note": "THIS IS A CHAT SSH ( DLC ), THIS STILL IN DEVELOPPEMENT !!",
+    "KeyLicense": "License Key Here",
+    "port": 1212,
+    "alt_port": 8089,
+    "profile_port": 5555,
+    "data_dir": "royal-data",
+    "key_file": "royal-sshkey",
+    "royal-integrations": "build/dlc/royal-integrations.json",
+    "censor": false,
+    "admins": {
+      "c89c4187f5a85f90f1ccbb4c98b41d000d0a22daa7b2691356352431788c542e": "Royal : github.com/Royaloakap",
+      "ID": "Royal : github.com/Royaloakap"
+    },
+    "private": true,
+    "allowlist": {
+      "c89c4187f5a85f90f1ccbb4c98b41d000d0a22daa7b2691356352431788c542e": "Royal : github.com/Royaloakap",
+      "ID": "Royal : github.com/Royaloakap"
+    }
+}

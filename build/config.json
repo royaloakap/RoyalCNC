@@ -1,121 +1,124 @@
 {
-    "Masters" : {
-        "master_user" : "royal",
-        "note": "customize option",
-        "MastersPort"    : "1339",
-        "MastersMaxAuth" : 1,
-        "MastersKeyFile" : "ssh-key",
-        "attacks_status": true
-        
-    },
-    
-    "Database" : {
-        "note": "Database Link",
-        "MongoURL": "mongodb://localhost:27017"
-    },
+  "Masters" : {
+      "master_user" : "royal",
+      "note": "customize option",
+      "MastersPort"    : "1339",
+      "MastersMaxAuth" : 1,
+      "MastersKeyFile" : "ssh-key",
+      "attacks_status": true
+      
+  },
   
-    "App": {
-        "License": "License Key Here",
-        "note": "Buy license here : royalprojets.sellix.io",
-        "CNC_NAME" : "Royal SRC",
-        "title_update_sleep_ms": 1500,
+  "Database" : {
+      "note": "Database Link",
+      "MongoURL": "mongodb://localhost:27017"
+  },
+
+  "App": {
+      "License": "License Key Here",
+      "note": "App configuration",
+      "CNC_NAME" : "Royal SRC",
+      "title_update_sleep_ms": 1500,
+
+      "note1": "Logs save to file",
+      "log_ips": true,
+      "log_attacks_to_file": true,
+      
+      "note2": "Logs send to Discord",
+      "attack_sent": "Discord attacks send logs",
+      "ip_log": "Discord ip logs",
+      "blacklisted_host": "Discord bl send logs",
+      "admin_actions(In Soon)": "Discord admin Action logs ( In soon )",
+      "reseller_actions(In Soon)": "Discord Reseller Action logs ( In soon )",
+      "failed_captcha(In Soon)": "Discord failed captcha logs ( In soon )",
+      "failed_mfa(In Soon)": "Discord failed mfa logs ( In soon )"
+  },
   
-        "log_ips": true,
-        "log_attacks_to_file": true,
-        "attack_sent": "attacks send logs",
-        "ip_log": "ip logs",
-        "blacklisted_host": "bl send logs",
-        "admin_actions(In Soon)": "admin Action logs",
-        "reseller_actions(In Soon)": "Reseller Action logs",
-        "failed_captcha(In Soon)": "failed captcha logs",
-        "failed_mfa(In Soon)": "failed mfa logs"
-    },
-    
-    "telegram_bot": {
-        "information": "in soon",
-        "enabled": false,
-        "bot_token": "bot token",
-        "bot_debug_mode_enabled": false,
-        "bot_timeout_seconds": 30,
-        "start_message": "Hi its Royal"
-    },
-    "reverse_proxy": {
-        "information": "in soon",
-        "enabled": true,
-        "api_token": "xxxxxxxxxxxxxxxxxxxxxxxx",
-        "api_host": "IP VPS",
-        "api_port": 80
-    },
-    
-    "home_holder_custom_concurrents": {
-        "enabled": true,
-        "home_holder_method_name": "home-vip",
-        "note": "soon",
-        "options": {
-            "all": {
-                "enabled": true,
-                "home_holder_concurrents": 1
-            },
-            "select": {
-                "enabled": false,
-                "who_has_access": [
-                    {
-                        "username": "root",
-                        "home_holder_concurrents": 1
-                    }
-                ]
-            }
-        }
-    },
-    
-    "themes": [
-        {
-            "note": "IN SOON",
-            "name": "theme1",
-            "description": "defaut theme.",
-            "example": "branding/theme1/",
-            "colour": "[97m"
-        },
-         {
-            "note": "IN SOON",
-            "name": "theme2",
-            "description": "soon.  ",
-            "example": "branding/theme2/",
-            "colour": "[97m"
-        }
-    ],
-    "Controls" : {
-        "login_captcha" : {
-            "Status" : false,
-            "note": "capcha system",
-            "Header" : "In soon!", 
-            "Color"  : "In Soon !",
-            "AllowedAttempts" : 3,
-            "AdminBypass" : true,
-            "Question" : {
-                "MinGen" : 21,
-                "MaxGen" : 99
-            }
-        },
-        "timeouts": {
-            "api_timeout_seconds": 30,
-            "server_timeout_seconds": 30,
-            "max_idle_seconds": 999999
-        },
-        "reseller_permissions": {
-            "can_edit_users_they_made": true,
-            "can_view_user_count_command": true,
-            "can_remove_users_they_made": true,
-            "can_kick_users_they_made": true,
-            "can_ban_users_they_made": true,
-            "can_lock_users_they_made": true,
-            "can_view_users_they_made": true,
-            "can_change_pass_of_users_they_made": true
-        },
-        "MFA": {
-            "note": "MFA system",
-            "Status" : true,
-            "AdminBypass" : false
-        }
-    }
+  "telegram_bot": {
+      "information": "in soon",
+      "enabled": false,
+      "bot_token": "bot token",
+      "bot_debug_mode_enabled": false,
+      "bot_timeout_seconds": 30,
+      "start_message": "Hi its Royal"
+  },
+  "reverse_proxy": {
+      "information": "in soon",
+      "enabled": true,
+      "api_token": "xxxxxxxxxxxxxxxxxxxxxxxx",
+      "api_host": "IP VPS",
+      "api_port": 80
+  },
+  
+  "home_holder_custom_concurrents": {
+      "enabled": true,
+      "home_holder_method_name": "home-vip",
+      "note": "soon",
+      "options": {
+          "all": {
+              "enabled": true,
+              "home_holder_concurrents": 1
+          },
+          "select": {
+              "enabled": false,
+              "who_has_access": [
+                  {
+                      "username": "root",
+                      "home_holder_concurrents": 1
+                  }
+              ]
+          }
+      }
+  },
+  
+  "themes": [
+      {
+          "note": "IN SOON",
+          "name": "theme1",
+          "description": "defaut theme.",
+          "example": "branding/theme1/",
+          "colour": "[97m"
+      },
+       {
+          "note": "IN SOON",
+          "name": "theme2",
+          "description": "soon.  ",
+          "example": "branding/theme2/",
+          "colour": "[97m"
+      }
+  ],
+  "Controls" : {
+      "login_captcha" : {
+          "Status" : false,
+          "note": "capcha system",
+          "Header" : "In soon!", 
+          "Color"  : "In Soon !",
+          "AllowedAttempts" : 3,
+          "AdminBypass" : true,
+          "Question" : {
+              "MinGen" : 21,
+              "MaxGen" : 99
+          }
+      },
+      "timeouts": {
+          "api_timeout_seconds": 30,
+          "server_timeout_seconds": 30,
+          "max_idle_seconds": 999999
+      },
+      "reseller_permissions": {
+          "can_edit_users_they_made": true,
+          "can_view_user_count_command": true,
+          "can_remove_users_they_made": true,
+          "can_kick_users_they_made": true,
+          "can_ban_users_they_made": true,
+          "can_lock_users_they_made": true,
+          "can_view_users_they_made": true,
+          "can_change_pass_of_users_they_made": true
+      },
+      "MFA": {
+          "note": "MFA system",
+          "Status" : true,
+          "AdminBypass" : false
+      }
   }
+}

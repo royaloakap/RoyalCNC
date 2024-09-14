@@ -5,7 +5,7 @@ reseller=false
 vip=false
 raw=false
 holder=false 
-==================== MENU SPLIT DONE ====================
+==================== MENU Royal DONE ====================
 [38;5;255mUsername[38;5;45m:[38;5;039m<<$username>>
 [38;5;255mMax Attack Time[38;5;45m:[38;5;039m<<$maxtime>> secs
 [38;5;255mConcurrents[38;5;45m:[38;5;039m<<$concurrents>>
