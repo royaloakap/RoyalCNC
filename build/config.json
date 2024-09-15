@@ -2,6 +2,7 @@
   "Masters" : {
       "master_user" : "royal",
       "note": "customize option",
+      "Max_Slots":    "50",
       "MastersPort"    : "1339",
       "MastersMaxAuth" : 1,
       "MastersKeyFile" : "ssh-key",

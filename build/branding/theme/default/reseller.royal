@@ -1,0 +1,16 @@
+<<clear()>>
+[38;5;255m╔════════════════════════════════════════════════════════════════════════╗
+[38;5;255m║ Command                             ║ Description                      ║
+[38;5;255m╟─────────────────────────────────────╢──────────────────────────────────╢
+[38;5;255m║ clients maxsessions=1  root         ║ Set max sessions to 1            ║
+[38;5;255m║ clients holder=false root           ║ Set client holder status to false║
+[38;5;255m║ clients holder=true root            ║ Set client holder status to true ║
+[38;5;255m║ clients raw=false root              ║ Set client raw mode to false     ║
+[38;5;255m║ clients raw=true root               ║ Set client raw mode to true      ║
+[38;5;255m║ clients concurrents=2 root          ║ Set max concurrent clients to  2 ║
+[38;5;255m║ clients cooldown=60 root            ║ Set client cooldown  to 60 sec   ║
+[38;5;255m║ clients add-days=30 root            ║ Add 30 days to client            ║
+[38;5;255m║ clients maxtime=3600 root           ║ Set max time to 3600 seconds     ║
+[38;5;255m║ clients vip=false root              ║ Set VIP status to false          ║
+[38;5;255m║ clients vip=true root               ║ Set VIP status to true           ║
+[38;5;255m╚════════════════════════════════════════════════════════════════════════╝

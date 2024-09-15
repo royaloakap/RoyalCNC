@@ -14,6 +14,7 @@ Make sure to read to the bottom for designing tools and colors!
 
 ##### branding/title.royal #####
 `Response Type: String`
+<<$maxslots>> string                `Description` Max slots on System
 <<$online>> int                    `Description` Total number of users who are currently logged in (Example: 3)
 <<$cnc>> string                    `Description` CNC name set in the Settings > General > Name section of config.json
 <<$createdBy>> string               `Description` Created by
@@ -48,10 +49,12 @@ Make sure to read to the bottom for designing tools and colors!
 <<$maxtime>> int                  `Description` Max Time (ex: 120)
 <<$cooldown>> int                 `Description` Cooldown (ex: 30)
 <<$concurrents>> int              `Description` Max Concurrents (ex: 3)
-<<$myongoing>> int                `Description` My ongoing attacks
-<<$ongoing>> int                  `Description` All ongoing attacks
+<<$ongoing>> int                `Description` My ongoing attacks
+<<$powersaving>>                  `Description` Bypass Power Saving Status
+<<$bypassblacklist>>              `Description` Bypass BlackList Status
+<<$allongoing>> int                  `Description` All ongoing attacks
 
-##### SOON build/theme1/cfxinfo.royal #####
+##### SOON build/theme/cfxinfo.royal #####
 
 `Response Type: string`
 <<$cfx.ip>>                         `Description` Self explanatory
@@ -64,7 +67,7 @@ Make sure to read to the bottom for designing tools and colors!
 <<$cfx.players.current>>            `Description` Self explanatory
 <<$cfx.players.max>>                `Description` Self explanatory
 
-##### SOON build/theme1/ipinfo.royal #####
+##### SOON build/theme/ipinfo.royal #####
 
 `Response Type: string`
 <<$host.ip>>                        `Description` Self explanatory
@@ -81,14 +84,9 @@ Make sure to read to the bottom for designing tools and colors!
 
 
 
-##### build/theme1/views/ #####
+##### build/theme/views/ #####
 - Custom Login
     - <<usernameposition(row,column)>> func
     - <<passwordposition(row,column)>> func
     - <<newpwdposition(row,column)>> func
     - <<cnewpwdposition(row,column)>> func
-
-
-    En cours 
-    <<$powersaving>>
-    <<$bypassblacklist>>
