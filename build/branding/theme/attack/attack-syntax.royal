@@ -1,5 +1,0 @@
-[38;5;196m Invalid Syntax !![0m
-[38;5;220m [38;5;196mSyntax [38;5;230m [[38;5;46mMethod[38;5;230m] [[38;5;46mTarget[38;5;230m] [[38;5;46mPort[38;5;230m] [[38;5;46mDuration[38;5;230m]
-[38;5;220m Example L4[38;5;196m: [38;5;230mudp-pps 8.8.8.8 53 120
-[38;5;220m Example L7[38;5;196m: [38;5;230mhttps-rdm https://random.com 443 120
-[38;5;230m
