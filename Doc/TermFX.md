@@ -49,10 +49,11 @@ Make sure to read to the bottom for designing tools and colors!
 <<$maxtime>> int                  `Description` Max Time (ex: 120)
 <<$cooldown>> int                 `Description` Cooldown (ex: 30)
 <<$concurrents>> int              `Description` Max Concurrents (ex: 3)
-<<$ongoing>> int                `Description` My ongoing attacks
+<<$ongoing>> int                  `Description` My ongoing attacks
 <<$powersaving>>                  `Description` Bypass Power Saving Status
 <<$bypassblacklist>>              `Description` Bypass BlackList Status
-<<$allongoing>> int                  `Description` All ongoing attacks
+<<$allongoing>> int               `Description` All ongoing attacks
+<<$fake_online>>                  `Description` Fake Online Count + real online user (defaut add 4 fake online users)
 
 ##### SOON build/theme/cfxinfo.royal #####
 
@@ -90,3 +91,14 @@ Make sure to read to the bottom for designing tools and colors!
     - <<passwordposition(row,column)>> func
     - <<newpwdposition(row,column)>> func
     - <<cnewpwdposition(row,column)>> func
+
+
+### Soon
+<<$fake_bots>>
+<<$>>
+<<$>>
+<<$>>
+<<$>>
+<<$>>
+<<$>>
+
