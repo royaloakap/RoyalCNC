@@ -11,6 +11,14 @@ Ram: `2 Gb`
 CPU: `1 core` @ `1 Ghz`
 Storage: `8 Gb`
 *Step #1*
+
+# Run the following 3 commands:
+
+`sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1`
+`sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1`
+`sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1`
+
+
 # Do the following:
 	Open the "build/config.json" and replace line 19 with your license key.
 	Open the "build/config.json" and chek the entire config file.
