@@ -2,7 +2,7 @@
 
 Thank you for your trust in Royal SRC, you will not regret it.
 
-Current SRC version: `1.2.1`
+Current SRC version: `1.7.5`
 
 # Minimum specs
 
@@ -20,13 +20,12 @@ Storage: `8 Gb`
 
 
 # Do the following:
-	Open the "build/config.json" and replace line 19 with your license key.
-	Open the "build/config.json" and chek the entire config file.
-   Open the "build/attacks/attacks.json" and replace lines.
-	Open the "build/presets.json" and replace your presets.
+	Open the "assets/config/config.json" and replace line 36 with your license key.
+	Open the "assets/config/config.json" and check the entire config file.
+   Open the "assets/attacks/attacks.json" and replace lines.
+	Open the "assets/config/presets.json" and replace your presets.
 
 *Step #2*
-0.  you can try to do everything in 1x using `./Setup.sh` if an error occurs do the setup by hand.
 1.  On your server run `sudo apt-get update -y` and `sudo apt-get upgrade -y`.
 2.  First run `sudo apt-get install gnupg`.
 3.  Then run `curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -`.
@@ -38,24 +37,25 @@ Storage: `8 Gb`
 8.  Then run `sudo systemctl start mongod.service`.
 9.  Then run `sudo systemctl status mongod`.
 10. Your MongoURL Default will be `mongodb://127.0.0.1:27017/`.
-11. Then run `ssh-keygen -t rsa -b 2048 -f ssh-key`.
-12. Moov  `mv ssh-key /root/RoyalSRC/build/ssh-key` .
 *Step #3*
 1. On your server run `sudo apt-get update -y` and `sudo apt-get upgrade -y`.
 2. Upload the files in 'RoyalSRC' onto your server.
 3. Navigate into the directory using: `cd RoyalSRC`.
+3.1 Then run `sudo su root`
 4. Now run: `chmod 777 *`.
 5. Now run: `./RoyalSRC`.
 
-# How to start sessions PM2:
-1. `sudo apt-get install nodejs npm -y`.
-2. `npm install n -g`.
-3. `n latest`.
-4. `npm i pm2 -g`.
-5. `cd ./RoyalSRC`. for test
+# How to start sessions with PM2:
+0. `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash`
+1. `source ~/.bashrc`
+2. `nvm install 22.9.0`
+2.1 `nvm use 22.9.0`
+3. `npm install n -g`.
+4. `n latest`.
+5. `npm i pm2 -g`.
 6. Now run: `chmod 777 *`.
-7. `pm2 start "./RoyalSRC" --name RoyalSRC`.
-
+7. `./RoyalSRC` for test
+8. `pm2 start "./RoyalSRC" --name RoyalSRC`.
 
 # How to reattach to Royal's pm2
 
@@ -74,7 +74,7 @@ Storage: `8 Gb`
    3. Set Connect Type to "SSH".
    4. Click connect.
    5. Type any username then enter to ge to the custom login screen. 
-   6. Go to /RoyalSRC/build/login.json for first account.
+   6. Go to /RoyalSRC/assets/config/login.json for first account !!!!.
 
 # Launch Attacks
 
@@ -84,9 +84,9 @@ Storage: `8 Gb`
 # How to use SHH-CHAT ( DLC )
 *Step #1*
 # Do the following:
-	Open the "build/dlc/config.json" and replace line 2 with your license key.
-	Open the "build/dlc/config.json" and chek the entire config file.
-   Open the "build/dlc/royal-integrations.json" and replace lines for startup discord Bot.
+	Open the "assets/dlc/config/config.json" and replace line 2 with your license key.
+	Open the "assets/dlc/config/config.json" and check the entire config file.
+   Open the "assets/dlc/royal-integrations.json" and replace lines for startup discord Bot.
 
 1. go to `cd /RoyalSRC/`
 2. run `pm2 start "./CHAT-SSH" --name CHAT-SSH`
