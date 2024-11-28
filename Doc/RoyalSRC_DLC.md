@@ -31,6 +31,7 @@ https:// YOUR_CLOUDFLARE_DOMAIN /api/ view_ongoing ?username= YOUR_USERNAME_HERE
 https:// YOUR_CLOUDFLARE_DOMAIN /api/ view_plan    ?username= YOUR_USERNAME_HERE &password= YOUR_PASSWORD_HERE
 https:// YOUR_CLOUDFLARE_DOMAIN /api/ attack       ?username= YOUR_USERNAME_HERE &password= YOUR_PASSWORD_HERE &host={HOST}&port={PORT}&time={TIME}&method={METHOD}
 https:// YOUR_CLOUDFLARE_DOMAIN /api/ network_statistics
+https:// YOUR_CLOUDFLARE_DOMAIN /api/ stop  ?username=  YOUR_USERNAME_HERE  &password=  YOUR_PASSWORD_HERE&host={target}
 *Optional for /api/attack > &concurrents=1 &rps=64 &threads=10 &geo=CN <* 
 `Lookup`
 https:// YOUR_CLOUDFLARE_DOMAIN /lookup/ mc? server_address= membre.papanost.fr
@@ -40,6 +41,7 @@ http:// YOUR_SERVER_IP /api/ view_ongoing ?username= YOUR_USERNAME_HERE &passwor
 http:// YOUR_SERVER_IP /api/ view_plan    ?username= YOUR_USERNAME_HERE &password= YOUR_PASSWORD_HERE
 http:// YOUR_SERVER_IP /api/ attack       ?username= YOUR_USERNAME_HERE &password= YOUR_PASSWORD_HERE &host={HOST}&port={PORT}&time={TIME}&method={METHOD}
 http:// YOUR_SERVER_IP /api/ network_statistics
+http:// YOUR_SERVER_IP /api/ stop  ?username=  YOUR_USERNAME_HERE  &password=  YOUR_PASSWORD_HERE&host={target}
 *Optional for /api/attack > &concurrents=1 &rps=64 &threads=10 &geo=CN <*
 `Lookup`
 http:// YOUR_SERVER_IP /lookup/ mc? server_address= membre.papanost.fr
@@ -49,4 +51,4 @@ http:// YOUR_SERVER_IP /lookup/ cfx? cfx_code= 99l9le
 
 # Join https://t.me/vouchroyal for other Royal services!
 
-# Thans for trust RoyalSRC Neger
+# Thans for trust RoyalSRC Brother

@@ -1,97 +1,143 @@
 # Royal SRC Tutorial
 
-Thank you for your trust in Royal SRC, you will not regret it.
+Thank you for choosing Royal SRC; you won't regret it!
 
-Current SRC version: `1.7.5`
+**Current SRC version**: `1.8.4.6`
 
-# Minimum specs
+---
 
-Operating System: `Ubuntu 20.04`
-Ram: `2 Gb`
-CPU: `1 core` @ `1 Ghz`
-Storage: `8 Gb`
-*Step #1*
+## Minimum Requirements
 
-# Run the following 3 commands:
+- **Operating System**: `Ubuntu 22.04`
+- **RAM**: `2 GB`
+- **CPU**: `2 Core` @ `2 GHz`
+- **Storage**: `20 GB` Is better
 
-`sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1`
-`sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1`
-`sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1`
+---
+## Check This for Any Support :
+## https://t.me/c/2118617839/3/784
+## https://t.me/c/2118617839/9/1170 
+## https://t.me/royaloakap_bot 
+---
+
+## Step 1: Initial Setup
+
+Run the following commands to disable IPv6 (optional):
+
+```bash
+sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1
+
+1.Open assets/config/config.json and replace line 4 with your license key.
+2.Check the rest of assets/config/config.json for any custom settings.
+3.Open assets/attacks/attacks.json and update relevant lines.
+4.Open assets/config/presets.json and replace your presets as needed.
+
+1. Step 1: Install RoyalSRC ``
+
+1.1 `Upload the RoyalSRC files to your server.`
+1.2 Navigate to the directory: `cd RoyalSRC`, `sudo su root`, `chmod 777 *`
+
+Step 2: Install MongoDB
+
+1. Update the server: `sudo apt-get update -y && sudo apt-get upgrade -y`
+2. Install gnupg: `sudo apt-get install gnupg`
+3. Add MongoDB Key: `curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+apt-key list`
+4. Add MongoDB repository: `echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list`
+5. Install OpenSSL dependency: `sudo -i wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb`
+5.1 And: `sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb`
+6. Install MongoDB: `sudo apt update`
+6.1. `sudo apt install mongodb-org`
+6.1. `sudo systemctl start mongod`
+6.*  `./RoyalSRC` (It s just for Create Database And Collections.)
+6.* `Control + C`
+Step 2.1: Secure MongoDB with Authentication
+Connect to MongoDB without authentication:
+
+1.1: `mongo`
+1.2: Switch to database `use Royal`
+
+Create a MongoDB user: Replace "chAmBuTRurgUEGINHERVatArylingF" with a strong password.
+1.3:
+`db.createUser({
+  user: "root",
+  pwd: "chAmBuTRurgUEGINHERVatArylingF",
+  roles: [{ role: "readWrite", db: "Royal" }]
+})`
+
+Enable authentication in MongoDB by editing the configuration file:
+
+Open the MongoDB configuration file:
+
+1.4: Put CMD `sudo nano /etc/mongod.conf`
+
+Add the following under the security section:
+
+security:
+  authorization: "enabled"
+
+Save and close the file. ( Control + o and ENTER / Control + X for quit nano)
+
+Restart MongoDB to apply the changes:
+
+1.5: Put CMD `sudo systemctl restart mongod`
+1.6: And Start Mongo DB `sudo systemctl start mongod`
+
+In your config.json file, update the MongoDB URL with the username and password:
+"Database": {
+  "MongoURL": "mongodb://root:your_password@localhost:27017/Royal"
+}
+
+To verify that authentication is working, try connecting to MongoDB using the command line with the new credentials:
+
+`mongo -u root -p your_password --authenticationDatabase Royal`
 
 
-# Do the following:
-	Open the "assets/config/config.json" and replace line 36 with your license key.
-	Open the "assets/config/config.json" and check the entire config file.
-   Open the "assets/attacks/attacks.json" and replace lines.
-	Open the "assets/config/presets.json" and replace your presets.
+After following these steps, your MongoDB instance will require a username and password for access, securing your data.
 
-*Step #2*
-1.  On your server run `sudo apt-get update -y` and `sudo apt-get upgrade -y`.
-2.  First run `sudo apt-get install gnupg`.
-3.  Then run `curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -`.
-4.  Then run `apt-key list`.
-5.  Then run `echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list`.
-6.  Then run `sudo -i wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb` and `sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb`.
-6.  Then run `sudo apt update`.
-7.  Then run `sudo apt install mongodb-org`.
-8.  Then run `sudo systemctl start mongod.service`.
-9.  Then run `sudo systemctl status mongod`.
-10. Your MongoURL Default will be `mongodb://127.0.0.1:27017/`.
-*Step #3*
-1. On your server run `sudo apt-get update -y` and `sudo apt-get upgrade -y`.
-2. Upload the files in 'RoyalSRC' onto your server.
-3. Navigate into the directory using: `cd RoyalSRC`.
-3.1 Then run `sudo su root`
-4. Now run: `chmod 777 *`.
-5. Now run: `./RoyalSRC`.
+8. Running Royal SRC with PM2, Install NVM and Node.js
 
-# How to start sessions with PM2:
-0. `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash`
-1. `source ~/.bashrc`
-2. `nvm install 22.9.0`
-2.1 `nvm use 22.9.0`
-3. `npm install n -g`.
-4. `n latest`.
-5. `npm i pm2 -g`.
-6. Now run: `chmod 777 *`.
-7. `./RoyalSRC` for test
-8. `pm2 start "./RoyalSRC" --name RoyalSRC`.
+8.1 `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.4/install.sh | bash`
+8.2 `source ~/.bashrc`
+8.3 `nvm install 22.9.0`
+8.4 `nvm use 22.9.0`
 
-# How to reattach to Royal's pm2
+9. Install PM2 `npm install n -g`
+9.1 `npm install n -g`
+9.2 `n latest`
+9.2 `npm i pm2 -g`
 
-`pm2 log RoyalSRC`.
+10. Run RoyalSRC 
+10.2 `./RoyalSRC`  # For testing
+10.3 `pm2 start "./RoyalSRC" --name RoyalSRC`
 
-# How to kill to Royal's pm2
+11. Managing RoyalSRC with PM2
 
-`pm2 stop RoyalSRC`.
+11.1 Reattach to logs: `pm2 log RoyalSRC`
+11.2 Stop RoyalSRC: `pm2 stop RoyalSRC`
 
-*Step #4*
-# Login
-1. Open your SSH Client or the terminal.
-2. On the Client:
-   1. Set the host field to your server IP.
-   2. Set the port field to `1339` (or what ever is in your `config.json`).
-   3. Set Connect Type to "SSH".
-   4. Click connect.
-   5. Type any username then enter to ge to the custom login screen. 
-   6. Go to /RoyalSRC/assets/config/login.json for first account !!!!.
 
-# Launch Attacks
+Step 4: Login
 
-1. Login to Royal SRC.
-2. Run `<method> <target> <port> <duration>`.   
+12. Connect using SSH
+12.1 Host: `Your server IP`
+12.2 Port: `1339` or as specified in config.json Lines 6
+12.3 Type: `SSH`
 
-# How to use SHH-CHAT ( DLC )
-*Step #1*
-# Do the following:
-	Open the "assets/dlc/config/config.json" and replace line 2 with your license key.
-	Open the "assets/dlc/config/config.json" and check the entire config file.
-   Open the "assets/dlc/royal-integrations.json" and replace lines for startup discord Bot.
+First account setup: Access /RoyalSRC/assets/config/login.json
 
-1. go to `cd /RoyalSRC/`
-2. run `pm2 start "./CHAT-SSH" --name CHAT-SSH`
-3. How to kill CHAT-SSH ? run `pm2 stop CHAT-SSH`
-4. How to view logs CHAT-SSH `pm2 log CHAT-SSH`
+Bonus  How To login on You r phone: Open Google Chrome or Safari and go on  https://ssheasy.com
 
-For any questions or assistance, please consult /RoyalSRC/Doc or contact t.me/Royaloakap.
+??? Launching Attacks ???
 
+1. Login to Royal SRC. (View Step 4)
+2. Run the command with the format: `<method> <target> <port> <duration>`
+
+
+Created By t.me/Royaloakap
+
+Check This for Any Support :
+https://t.me/c/2118617839/3/784
+https://t.me/c/2118617839/9/1170
