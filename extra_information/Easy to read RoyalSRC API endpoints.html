@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #f3b100;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.doc-section {
+    background-color: #1e1e2f;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 0.6s forwards;
+}
+
+.doc-section:nth-child(even) {
+    background-color: #2c2f45;
+}
+
+.doc-section:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 50px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.api-title {
+    color: #f3b100;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.api-description {
+    color: #dcdcdc;
+    margin-bottom: 20px;
+}
+
+.btn-api {
+    background-color: #f3b100;
+    color: #1e1e2f;
+    border-radius: 20px;
+    padding: 12px 25px;
+    font-size: 1.2em;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.btn-api:hover {
+    background-color: #ff8c00;
+    transform: translateY(-5px);
+}
+
+.btn-api:active {
+    transform: translateY(2px);
+}
+
+.api-response {
+    background-color: #000000;
+    color: #661bbb;
+    border-radius: 10px;
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    margin-top: 20px;
+    overflow-x: auto;
+    display: none;
+    animation: fadeInResponse 0.6s forwards;
+    font-size: 1em;
+}
+
+@keyframes fadeInResponse {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.code {
+    color: #f3b100;
+}
+
+.copy-btn {
+    background-color: #0e109c;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.copy-btn:hover {
+    background-color: #ff8c00;
+}
+
+.copy-btn i {
+    margin-right: 5px;
+}
+
+code {
+    color: #f3b100;
+    background-color: #222;
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+pre {
+    background-color: #1e1e2f;
+    padding: 20px;
+    border-radius: 10px;
+    color: #f3b100;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+}
+
+button, .btn-api {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover, .btn-api:hover {
+    background-color: #ff8c00;
+}
+
+button:active, .btn-api:active {
+    transform: translateY(2px);
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1>API Documentation</h1>
+
+    <div class="doc-section">
+        <h2 class="api-title">Add a new user to the database</h2>
+        <p class="api-description">
+            <strong>URL:</strong> <code>https://YOUR_CLOUDFLARE_DOMAIN/admin/add_user?username=&password=&username_to_add=&password_to_add=&preset_to_use={PRESET_NAME}</code><br>
+            <strong>preset_to_use options:</strong>
+            <ul>
+                <li>String: All presets in the assets/config/presets.json "presets" section.</li>
+            </ul>
+        </p>
+        <div>
+            <button class="btn-api" onclick="showResponse('response-add-user')">Show Response</button>
+            <button class="copy-btn" onclick="copyUrl('https://YOUR_CLOUDFLARE_DOMAIN/admin/add_user?username=&password=&username_to_add=&password_to_add=&preset_to_use={PRESET_NAME}')"><i class="fas fa-copy"></i>Copy URL</button>
+        </div>
+        <div class="api-response" id="response-add-user">
+                 response:
+            <pre>
+                {
+                    "error": false/true,
+                    "message": "API response will be here."
+                }
+            </pre>
+        </div>
+    </div>
+    
+    <div class="doc-section">
+        <h2 class="api-title">Edit a user in the database</h2>
+        <p class="api-description">
+            <strong>URL:</strong> <code>https://YOUR_CLOUDFLARE_DOMAIN/admin/edit_user?username=YOUR_ADMIN_USERNAME_HERE&password=PASSWORD&user_to_edit=USERNAME&field_to_edit=Integer&new_value=NEWVALUE</code><br>
+            <strong>user_to_edit options:</strong>
+            <ul>
+                <li>String: All users that exist in the database.</li>
+            </ul>
+            <strong>field_to_edit options:</strong>
+            <ul>
+                <li>String: password</li>
+                <li>Integer: Cooldown, MaxTime, Concurrents, max_daily_attacks, set_days, add_days</li>
+                <li>Bool: VIP, Reseller, Holder, Api, Powersaving, Bypassblacklist, Banned</li>
+            </ul>
+        </p>
+        <div>
+            <button class="btn-api" onclick="showResponse('response-edit-user')">Show Response</button>
+            <button class="copy-btn" onclick="copyUrl('https://YOUR_CLOUDFLARE_DOMAIN/admin/edit_user?username=YOUR_ADMIN_USERNAME_HERE&password=PASSWORD&user_to_edit=USERNAME&field_to_edit=Integer&new_value=NEWVALUE')"><i class="fas fa-copy"></i>Copy URL</button>
+        </div>
+        <div class="api-response" id="response-edit-user">
+             response:
+            <pre>
+                {
+                    "error": false/true,
+                    "message": "API response will be here."
+                }
+            </pre>
+        </div>
+    </div>
+    
+    <div class="doc-section">
+        <h2 class="api-title">Remove a user from the database</h2>
+        <p class="api-description">
+            <strong>URL:</strong> <code>https://YOUR_CLOUDFLARE_DOMAIN/admin/delete_user?username=YOUR_ADMIN_USERNAME_HERE&password=YOUR_PASSWORD_HERE&user_to_delete=USERNAME_TO_REMOVE</code><br>
+            <strong>user_being_removed options:</strong>
+            <ul>
+                <li>String: All users that exist in the database. (Can't remove root user)</li>
+            </ul>
+        </p>
+        <div>
+            <button class="btn-api" onclick="showResponse('response-remove-user')">Show Response</button>
+            <button class="copy-btn" onclick="copyUrl('https://YOUR_CLOUDFLARE_DOMAIN/admin/delete_user?username=YOUR_ADMIN_USERNAME_HERE&password=YOUR_PASSWORD_HERE&user_to_delete=USERNAME_TO_REMOVE')"><i class="fas fa-copy"></i>Copy URL</button>
+        </div>
+        <div class="api-response" id="response-remove-user">
+             response:
+            <pre>
+                {
+                    "error": false/true,
+                    "message": "API response will be here."
+                }
+            </pre>
+        </div>
+    </div>
+    
+    <div class="doc-section">
+        <h2 class="api-title">View a specific user's attack logs</h2>
+        <p class="api-description">
+            <strong>URL:</strong> <code>http://YOUR_SERVER_IP/admin/view_user_logs?username=YOUR_ADMIN_USERNAME_HERE&password=YOUR_PASSWORD_HERE&user_to_view=USERNAME_TO_SEARCH</code><br>
+            <strong>user_to_view options:</strong>
+            <ul>
+                <li>String: All users that exist in the database.</li>
+            </ul>
+        </p>
+        <div>
+            <button class="btn-api" onclick="showResponse('response-view-user-logs')">Show Response</button>
+            <button class="copy-btn" onclick="copyUrl('http://YOUR_SERVER_IP/admin/view_user_logs?username=YOUR_ADMIN_USERNAME_HERE&password=YOUR_PASSWORD_HERE&user_to_view=USERNAME_TO_SEARCH')"><i class="fas fa-copy"></i>Copy URL</button>
+        </div>
+        <div class="api-response" id="response-view-user-logs">
+            response:
+            <pre>
+    {
+        "error": true,
+        "message": "API response will be here."
+    }
+    OR
+    {
+        "error": false,
+        "user_logs": [{},{},{}]
+    }
+            </pre>
+        </div>
+    </div>
+    
+    <div class="doc-section">
+        <h2 class="api-title">View a specific user's plan information</h2>
+        <p class="api-description">
+            <strong>URL:</strong> <code>http://YOUR_SERVER_IP/admin/view_user_plan?username=YOUR_ADMIN_USERNAME_HERE&password=YOUR_PASSWORD_HERE&user_to_view=USERNAME_TO_SEARCH</code><br>
+            <strong>user_to_view options:</strong>
+            <ul>
+                <li>String: All users that exist in the database.</li>
+            </ul>
+        </p>
+        <div>
+            <button class="btn-api" onclick="showResponse('response-view-user-plan')">Show Response</button>
+            <button class="copy-btn" onclick="copyUrl('http://YOUR_SERVER_IP/admin/view_user_plan?username=YOUR_ADMIN_USERNAME_HERE&password=YOUR_PASSWORD_HERE&user_to_view=USERNAME_TO_SEARCH')"><i class="fas fa-copy"></i>Copy URL</button>
+        </div>
+        <div class="api-response" id="response-view-user-plan">
+            response:
+            <pre>
+    {
+        "error": true,
+        "message": "API response will be here."
+    }
+    OR
+    {
+        "username": "root",
+        "admin": false,
+        "max_time": 500,
+        "cooldown": 10,
+        "concurrents": 3,
+        "powersaving": false,
+        "bypass_anti_spam": false,
+        "bypass_blacklist": false,
+        "reseller": false,
+        "vip": true,
+        "owner": false,
+        "holder": true,
+        "api": true,
+        "creation_date": "2025-01-08 21:44:55",
+        "max_daily_attacks": 1000,
+        "attacks_remaining": 978,
+        "expiry_unix": 1779572716,
+        "formatted_expiry": "23-05-2026 21:45:16",
+        "created_by": "root"
+    }
+            </pre>
+        </div>
+    </div>
+    
+    <div class="doc-section">
+        <h2 class="api-title">View all attack logs stored in the database</h2>
+        <p class="api-description">
+            <strong>URL:</strong> <code>https://YOUR_CLOUDFLARE_DOMAIN/admin/view_all_logs?username=YOUR_ADMIN_USERNAME_HERE&password=YOUR_PASSWORD_HERE</code><br>
+        </p>
+        <div>
+            <button class="btn-api" onclick="showResponse('response-view-all-l')">Show Response</button>
+            <button class="copy-btn" onclick="copyUrl('https://YOUR_CLOUDFLARE_DOMAIN/admin/view_all_logs?username=YOUR_ADMIN_USERNAME_HERE&password=YOUR_PASSWORD_HERE')"><i class="fas fa-copy"></i>Copy URL</button>
+        </div>
+        <div class="api-response" id="response-view-all-l">
+            response:
+            <pre>
+    {
+        "error": true,
+        "message": "API response will be here."
+    }
+    OR
+    {
+        "error": false,
+        "logs": [{},{},{}]
+    }
+            </pre>
+        </div>
+    </div>
+    
+    <div class="doc-section">
+        <h2 class="api-title">View all users and their plan information</h2>
+        <p class="api-description">
+            <strong>URL:</strong> <code>https://YOUR_CLOUDFLARE_DOMAIN/admin/view_all_users?username=YOUR_ADMIN_USERNAME_HERE&password=YOUR_PASSWORD_HERE</code><br>
+        </p>
+        <div>
+            <button class="btn-api" onclick="showResponse('response-view-all-k')">Show Response</button>
+            <button class="copy-btn" onclick="copyUrl('https://YOUR_CLOUDFLARE_DOMAIN/admin/view_all_users?username=YOUR_ADMIN_USERNAME_HERE&password=YOUR_PASSWORD_HERE')"><i class="fas fa-copy"></i>Copy URL</button>
+        </div>
+        <div class="api-response" id="response-view-all-k">
+            response:
+            <pre>
+    {
+        "error": true,
+        "message": "API response will be here."
+    }
+    OR
+    {
+        "error": false,
+        "users": [{},{},{}]
+    }
+            </pre>
+        </div>
+    </div>
+    
+    <div class="doc-section">
+        <h2 class="api-title">View build and license key information</h2>
+        <p class="api-description">
+            <strong>URL:</strong> <code>https://YOUR_CLOUDFLARE_DOMAIN/admin/key_info?username=YOUR_ADMIN_USERNAME_HERE&password=YOUR_PASSWORD_HERE</code><br>
+        </p>
+        <div>
+            <button class="btn-api" onclick="showResponse('response-key-h')">Show Response</button>
+            <button class="copy-btn" onclick="copyUrl('https://YOUR_CLOUDFLARE_DOMAIN/admin/key_info?username=YOUR_ADMIN_USERNAME_HERE&password=YOUR_PASSWORD_HERE')"><i class="fas fa-copy"></i>Copy URL</button>
+        </div>
+        <div class="api-response" id="response-key-h">
+            response:
+            <pre>
+    {
+        "error": true,
+        "message": "API response will be here."
+    }
+    OR
+    {
+        "created_by": "root",
+        "days_remaining": "973.69",
+        "dev_infos": "royalprojets.com",
+        "dlc_status": "true",
+        "ip_address": "IP ADRESS",
+        "license_key": "License Key",
+        "product_name": "Royal SRC",
+        "royal_src_version": "1.8.5.3"
+    }
+            </pre>
+        </div>
+    </div>
+    <div class="doc-section">
+        <h2 class="api-title">View your running attacks (Admins and Mods see all running attacks)</h2>
+        <p class="api-description">
+            <strong>URL:</strong> <code>https://YOUR_CLOUDFLARE_DOMAIN/api/view_ongoing?username=YOUR_USERNAME_HERE&password=YOUR_PASSWORD_HERE</code><br>
+        </p>
+        <div>
+            <button class="btn-api" onclick="showResponse('response-key-f')">Show Response</button>
+            <button class="copy-btn" onclick="copyUrl('ttps://YOUR_CLOUDFLARE_DOMAIN/api/view_ongoing?username=YOUR_USERNAME_HERE&password=YOUR_PASSWORD_HERE')"><i class="fas fa-copy"></i>Copy URL</button>
+        </div>
+        <div class="api-response" id="response-key-f">
+             response:
+            <pre>
+                {
+                    "error": true,
+                    "message": "API response will be here."
+                }
+                OR
+                Admin/Owner:
+                {
+                    "error":     false,
+                    "user_only": false,
+                    "ongoing":   [{},{},{}]
+                }
+                Non-Admin/Owner:
+                {
+                    "error":     false,
+                    "user_only": true,
+                    "ongoing":   [{},{},{}]
+                }
+            </pre>
+        </div>
+    </div>
+    
+    <div class="doc-section">
+        <h2 class="api-title">View network statistics</h2>
+        <p class="api-description">
+            <strong>URL:</strong> <code>https://YOUR_CLOUDFLARE_DOMAIN/api/network_statistics</code><br>
+        </p>
+        <div>
+            <button class="btn-api" onclick="showResponse('response-key-s')">Show Response</button>
+            <button class="copy-btn" onclick="copyUrl('https://YOUR_CLOUDFLARE_DOMAIN/api/network_statistics')"><i class="fas fa-copy"></i>Copy URL</button>
+        </div>
+        <div class="api-response" id="response-key-s">
+             response:
+            <pre>
+                {
+                    "error": true,
+                    "message": "API response will be here."
+                }
+                OR
+                {
+                   "online_users_count": 1,
+                   "total_users_count": 239,
+                   "active_users_count": 129,
+                   "expired_users_count": 23,
+                   "attacks_are_enabled": true,
+                   "total_ongoing_attacks": 4,
+                   "max_attack_c2_slots": 9,
+                   "max_attack_api_slots": 10,
+                   "maintenance_mode": false,
+                   "src_name": "Royal SRC",
+                   "src_uptime": "8 hours 46 minutes",
+                }
+            </pre>
+        </div>
+    </div>
+    
+    <div class="doc-section">
+        <h2 class="api-title">View your plan information</h2>
+        <p class="api-description">
+            <strong>URL:</strong> <code>https://YOUR_CLOUDFLARE_DOMAIN/api/view_plan?username=YOUR_USERNAME_HERE&password=YOUR_PASSWORD_HERE</code><br>
+        </p>
+        <div>
+            <button class="btn-api" onclick="showResponse('response-key-z')">Show Response</button>
+            <button class="copy-btn" onclick="copyUrl('https://YOUR_CLOUDFLARE_DOMAIN/api/view_plan?username=YOUR_USERNAME_HERE&password=YOUR_PASSWORD_HERE')"><i class="fas fa-copy"></i>Copy URL</button>
+        </div>
+        <div class="api-response" id="response-key-z">
+             response:
+            <pre>
+                {
+                    "error": true,
+                    "message": "API response will be here."
+                }
+                OR
+                {
+                    "username": "test",
+                    "vip": false,
+                    "reseller": false,
+                    "admin": true,
+                    "holder": false,
+                    "api_access": true,
+                    "max_time": 60,
+                    "cooldown": 10,
+                    "concurrents": 1,
+                    "max_sessions": 0,
+                    "daily_attacks": {
+                      "max": 500,
+                      "remaining": 499
+                },
+                    "bypass_powersaving": false,
+                    "bypass_blacklist": false,
+                    "expiry_unix": "No Active",
+                    "expiry_formatted": "No Active",
+                    "creation_date": "2025-01-09 06:05:38",
+                    "created_by": "root",
+                    "last_login": "N/A",
+                    "ip_connected": [
+                      "No IP connected"
+                ],
+                    "active_sessions": 0,
+                    "plan_type": "Admin",
+                    "rank": "Admin"
+                }
+            </pre>
+        </div>
+    </div>
+    
+    <div class="doc-section">
+        <h2 class="api-title">Send API attack using assets/funnel.json (assets/dlc/funnel.json if you have Dlc Acces)</h2>
+        <p class="api-description">
+            <strong>URL:</strong> <code>https://YOUR_CLOUDFLARE_DOMAIN/api/attack?username=YOUR_USERNAME_HERE&password=YOUR_PASSWORD_HERE&host={HOST}&port={PORT}&time={TIME}&method={METHOD}</code><br>
+        </p>
+        <div>
+            <button class="btn-api" onclick="showResponse('response-key-e')">Show Response</button>
+            <button class="copy-btn" onclick="copyUrl('https://YOUR_CLOUDFLARE_DOMAIN/api/attack?username=YOUR_USERNAME_HERE&password=YOUR_PASSWORD_HERE&host={HOST}&port={PORT}&time={TIME}&method={METHOD}')"><i class="fas fa-copy"></i>Copy URL</button>
+        </div>
+        <div class="api-response" id="response-key-e">
+            response:
+            <pre>
+                {
+                    "error": true,
+                    "message": "API response will be here."
+                }
+                OR
+                {
+                    "Target": "33.33.33.33",
+                    "Port": 80,
+                    "Method_Used": "udp",
+                    "Time_Used": 60,
+                    "Len": "1",
+                    "Threads": 10,
+                    "RPS": 100,
+                    "Geo": "EU",
+                    "target_asn": "AS749 DoD Network Information Center",
+                    "target_city": "Whitehall",
+                    "target_country": "United States",
+                    "target_country_code": "US",
+                    "target_isp": "DoD Network Information Center",
+                    "target_org": "DoD Network Information Center",
+                    "target_region": "Ohio",
+                    "target_timezone": "America/New_York",
+                    "target_zip": "43218",
+                    "Username": "test",
+                    "Max_Time": 60,
+                    "Max_Concurrents": 1,
+                    "Cooldown": 10,
+                    "Max_Daily_Attacks": "500/500",
+                    "Holder_Status": false,
+                    "Vip_Status": false,
+                    "Api_Status": true,
+                    "Admin_Status": true,
+                    "Royal_Infos": "Royal SRC AIO (DLC FUNNEL) By ~ @Royaloakap ~"
+                } 
+            </pre>
+        </div>
+    </div>
+    
+    <div class="doc-section">
+        <h2 class="api-title">Kill Attack in running</h2>
+        <p class="api-description">
+            <strong>URL:</strong> <code>https://YOUR_CLOUDFLARE_DOMAIN/api/stop?username=YOUR_USERNAME_HERE&password=YOUR_PASSWORD_HERE&host={target}</code><br>
+        </p>
+        <div>
+            <button class="btn-api" onclick="showResponse('response-key-d')">Show Response</button>
+            <button class="copy-btn" onclick="copyUrl('https://YOUR_CLOUDFLARE_DOMAIN/api/stop?username=YOUR_USERNAME_HERE&password=YOUR_PASSWORD_HERE&host={target}')"><i class="fas fa-copy"></i>Copy URL</button>
+        </div>
+        <div class="api-response" id="response-key-d">
+             response:
+            <pre>
+                {
+                    "error": true,
+                    "message": "API response will be here."
+                }
+                OR
+                {
+                    "error":     false,
+                    "kill_id: "1"
+                }
+            </pre>
+        </div>
+    </div>
+    
+    <div class="doc-section">
+        <h2 class="api-title">Lookup Server Fivem</h2>
+        <p class="api-description">
+            <strong>URL:</strong> <code>https://YOUR_CLOUDFLARE_DOMAIN/lookup/lookup_fivem?cfx_code={CFX_CODE}</code><br>
+        </p>
+        <div>
+            <button class="btn-api" onclick="showResponse('response-key-fivem')">Show Response</button>
+            <button class="copy-btn" onclick="copyUrl('https://YOUR_CLOUDFLARE_DOMAIN/lookup/lookup_fivem?cfx_code={CFX_CODE}')"><i class="fas fa-copy"></i>Copy URL</button>
+        </div>
+        <div class="api-response" id="response-key-fivem">
+            response:
+            <pre>
+                {
+                    "error": true,
+                    "message": "API response will be here."
+                }
+                OR
+                    "ip_info": {
+                      "City": "Gravelines",
+                      "Country": "FR",
+                      "Hostname": "ip134.ip-137-74-33.eu",
+                      "IP": "137.74.33.134",
+                      "Loc": "50.9865,2.1281",
+                      "Org": "AS16276 OVH SAS",
+                      "Postal": "59820",
+                      "Readme": "https://ipinfo.io/missingauth",
+                      "Region": "Hauts-de-France",
+                      "Timezone": "Europe/Paris"
+                },
+                    "server": {
+                      "CurrentClients": 1,
+                      "DiscordLink": "https://discord.gg/stellantia",
+                      "EnhancedHosting": "true",
+                      "Gametype": "Stellantia RP",
+                      "IP": "137.74.33.134",
+                      "Map": "San Andreas",
+                      "MaxClients": 128,
+                      "Name": "^5Stellantia RP^0",
+                      "Owner": "DrekRS",
+                      "Port": "30176",
+                      "ProjectDesc": "Compatible manette ! Serveur français FreeAccess basé sur un RP USA, plongez dans un RP immersif !",
+                      "ProjectName": "Stellantia RP",
+                      "ResourcesCount": 249,
+                      "ServerVersion": "FXServer-master v1.0.0.12180 linux"
+                }
+            </pre>
+        </div>
+    </div>
+    <div class="doc-section">
+        <h2 class="api-title">Lookup Server MC</h2>
+        <p class="api-description">
+            <strong>URL:</strong> <code>https://YOUR_CLOUDFLARE_DOMAIN/lookup/lookup_mc?server_address={server_address}</code><br>
+        </p>
+        <div>
+            <button class="btn-api" onclick="showResponse('response-mc')">Show Response</button>
+            <button class="copy-btn" onclick="copyUrl('https://YOUR_CLOUDFLARE_DOMAIN/lookup/lookup_mc?server_address={server_address}')"><i class="fas fa-copy"></i>Copy URL</button>
+        </div>
+        <div class="api-response" id="response-mc">
+            response:
+            <pre>
+                {
+                    "error": true,
+                    "message": "API response will be here."
+                }
+                OR
+                    "ip_info": {
+                      "City": "Paris",
+                      "Country": "FR",
+                      "Hostname": "88-177-70-205.subs.proxad.net",
+                      "IP": "88.177.70.205",
+                      "Loc": "48.8534,2.3488",
+                      "Org": "AS12322 Free SAS",
+                      "Postal": "75000",
+                      "Readme": "https://ipinfo.io/missingauth",
+                      "Region": "Île-de-France",
+                      "Timezone": "Europe/Paris"
+                },
+                    "server": {
+                      "City": "Paris",
+                      "Country": "FR",
+                      "Hostname": "membre.papanost.fr",
+                      "IP": "88.177.70.205",
+                      "Port": 25565,
+                      "Postal": "75000",
+                     "Region": "Île-de-France",
+                      "Timezone": "Europe/Paris"
+                }
+            </pre>
+        </div>
+    </div>
+
+<script>
+    function copyUrl(url) {
+        const el = document.createElement('textarea');
+        el.value = url;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        alert('URL copiée dans le presse-papiers!');
+    }
+    function showResponse(responseId) {
+        const responseElement = document.getElementById(responseId);
+        if (responseElement.style.display === 'none' || responseElement.style.display === '') {
+            responseElement.style.display = 'block';
+        } else {
+            responseElement.style.display = 'none';
+        }
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

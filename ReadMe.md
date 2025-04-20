@@ -1,22 +1,25 @@
-Fr:
-### Informations Royal SRC ###
+✔️Thanks For View @RoyalSRC :
 
-Bonjour, pour obtenir l'accès et la dernière version de `Royal SRC (CNC)` Vous avez 2 étapes :
-1. « Allez sur ce site et achetez une licence ». `https://royalprojets.sellix.io/`
-2. « Produit Choix RoyalSRC »
-3. « Achetez ceci et consultez votre courrier » !
+🌐 For Download Folder 2 Choice:
+➡️ 1: API Link: https://royal-api.online/?license=YOUR_KEY_HERE&product=RoyalSRC
+➡️ 2: On my Web site: https://Royalprojets.com
 
-Un canal télégram vous sera remis, je vous invite à la rejoindre et à utiliser cette API pour télécharger la dernière version :
-`https://royal-api.online/?license=YOUR_KEY_HERE&product=RoyalSRC`
+( Click here To view your License Key https://royalprojets.com/profile/YOUR_DISCORD_ID )
 
-Eng:
+=============================================
+➡️Customer's Group (FAQ) : https://discord.gg/3PDtqCpMEe
+➡️For Support Contact : https://discord.gg/Gq6SVG4mp8
+➡️View All Previews :  (https://t.me/RoyalSRC)
+=============================================
 
-### Royal SRC Informations ###
+You are allowed One IPV4 per license if your backend gets banned or you need to reset the IP associated with your license 
+Contact this bot: t.me/Royal_License_Manager_bot And do the command /reset
 
-Hi, to obtain access and the latest version of `Royal SRC (CNC)` You have 2 steps:
-1. « Go to this site and buy a license». `https://royalprojets.sellix.io/`
-2. « Choice RoyalSRC Product».
-3. « Purchase this and look your mail».
+Do not share your products ( FILE, KEY, CREDENTIALS )
+Respect the administrators/members of our PROJETS
 
-A telegram channel will be given to you, I invite you to join it and use this API to download the latest version :
-`https://royal-api.online/?license=YOUR_KEY_HERE&product=RoyalSRC`
+📌Breaking our ToS will result in a Warning/Ban ( https://royalprojets.com/tos )
+
+Good use, don't hesitate to give me sincere feedback! https://royalprojets.com/reviews ❤️
+
+Created by https://royalprojets.com 🌟
